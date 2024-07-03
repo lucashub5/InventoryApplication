@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST')
+    div.form-group
+      label(for='name') Name:
+      input#name.form-control(type='text', placeholder='Name (Accesory)' name='name' required value=(category ? category.name : ''))
+    
+    div.form-group
+      label(for='short_description') Description:
+      input#description.form-control(type='text', placeholder='Description (Various accessories)' name='description' required value=(category ? category.description : ''))
+
+    div.form-group
+      label(for='short_description') Examples:
+      input#examples.form-control(type='text', placeholder='Examples (Garbage Bags)' name='examples' required value=(category ? category.examples : ''))
+
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

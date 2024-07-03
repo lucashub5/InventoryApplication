@@ -1,0 +1,30 @@
+/* Estilos generales para el cuerpo */
+body {
+  margin: 1vw;
+}
+
+/* Estilos para la navegación lateral */
+.sidebar-nav {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Estilos para la tabla */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table td {
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  border-bottom: 1px solid #ddd; /* Línea inferior en los encabezados de la tabla */
+}
+
+table td {
+  border-bottom: 1px solid #ddd; /* Línea inferior en las celdas de la tabla */
+}

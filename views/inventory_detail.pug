@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  h2= 'Owner by ' + inventory.owner
+
+  if inventory.articles.length > 0
+    table.table-style
+      thead
+        tr
+          th Name
+          th Description
+          th Price
+          th Quantity
+      tbody
+        each article in inventory.articles
+          tr
+            td= article.article.name
+            td= article.article.shortDescription
+            td= '$' + article.article.price
+            td= article.quantity
+  else
+    p There are no articles.
+  hr
+  p
+    a(href=`${inventory.url}/delete`) Delete Inventory

@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+
+  if article
+    .article-details
+      h2 #{article.name}
+      h4 #{article.detailDescription}
+      h5 Stock: #{article.stock_number}
+      h5 $#{article.price}
+  else
+    p Article not found.
+  hr
+  form(method='POST' action=`${article.url}/add_inventory`)
+    div.form-group
+      label(for='owner') Add to Inventory with owner: 
+      select#owner(name='owner')
+        each owner in inventory_owners
+          option(value=owner)= owner
+      |  quantity:
+      input(type='number', name='quantity', placeholder='Quantity' required)
+    button.btn.btn-primary(type='submit') Add
+  hr
+  p
+    a(href=`${article.url}/delete`) Delete Article
+  p
+    a(href=`${article.url}/update`) Update Article
+

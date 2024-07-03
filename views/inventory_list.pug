@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  h2= 'Select a inventory'
+
+  if inventory_list.length
+    table.table-style
+      thead
+        tr
+          th Owner
+          th Number of Articles
+          th Total Amount
+      tbody
+        each inventory in inventory_list
+          tr
+            td= inventory.owner
+            td= inventory.number_of_articles
+            td= '$' + inventory.total_amount
+            td
+              a(href=inventory.url)= 'Show'
+  else
+    p There are no categories.

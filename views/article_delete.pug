@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{article.name}
+  p= article.lifespan
+
+  if article_inventories.length
+
+    p #[strong Delete the article from the following inventories before deleting this article.]
+    div(style='margin-left:20px;margin-top:20px')
+      h4 Inventory's
+      dl
+        each inventory in article_inventories
+          dt
+            a(href=inventory.url) #{inventory.owner}
+
+  else
+    p Do you really want to delete this Article?
+
+    form(method='POST')
+      div.form-group
+        input#articleid.form-control(type='hidden', name='articleid', value=article._id )
+
+      button.btn.btn-primary(type='submit') Delete

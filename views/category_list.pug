@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  h2= 'Select a category'
+
+  if category_list.length
+    table.table-style
+      thead
+        tr
+          th Name
+          th Description
+          th Example of what you can find
+      tbody
+        each category in category_list
+          tr
+            td
+              a(href=category.url)= category.name
+            td= category.description
+            td= category.examples
+  else
+    p There are no categories.

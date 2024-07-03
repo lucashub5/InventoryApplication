@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  h2= category.name
+
+  if category_articles.length
+    table.table-style
+      thead
+        tr
+          th Name
+          th Description
+          th Price
+          th Stock
+      tbody
+        each article in category_articles
+          tr
+            td 
+              a(href=article.url)= article.name
+            td= article.shortDescription
+            td= '$' + article.price
+            td= article.stock_number
+  else
+    p There are no articles.
+
+  hr
+  p
+    a(href=`${category.url}/delete`) Delete Category
+  p
+    a(href=`${category.url}/update`) Update Category
